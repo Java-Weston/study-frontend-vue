@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in movices">{{item}}</li>
+        </ul>
+
+    </div>
+    <script src='../js/vue.js'>
+    </script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello World!',
+                movices:
+                    ['星际争霸', '英雄联盟', '地下城与勇士', '王者荣耀']
+            }
+        })
+    </script>
+</body>
+
+</html>
