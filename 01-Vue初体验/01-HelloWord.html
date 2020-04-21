@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- app被管理以后 就会识别{{}}  解析里面的内容(变量)-->
+    <!-- 以前js的做法
+    (1)创建div元素,设置id属性
+    (2)定义一个变量叫message
+    (3)讲message变量放在前面的div元素中显示
+    (4)修改message数据: 今天天气不错
+    (5)将修改后台的数据替换到div元素
+    -->
+
+    <div id="app">
+        <h2>
+            {{message}}
+        </h2>
+        <h1>
+            {{name}}
+        </h1>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        // es6 使用let/constå
+        //let 跟 const 区别 -> let: 定义变量  const:定义常量
+        //var 的缺陷:没有变量的作用域
+        const app = new Vue({
+            el: '#app', // 作为参数传入  用于挂载要管理的元素
+            data: { //定义数据
+                message: '你好啊,美女',
+                name: '我是帅哥'
+            }
+        })
+    </script>
+</body>
+
+</html>
