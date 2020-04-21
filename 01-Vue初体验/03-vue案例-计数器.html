@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "app" >
+        <!-- 显示当前计数 -->
+        <h2>当前计数:{{counter}}</h2>
+        <!-- 书写监听事件 -->
+        <!-- 书写加减按钮 -->
+        <!-- <button v-on:click="counter++">+</button>
+        <button v-on:click="counter--">-</button> -->
+        <!-- 在挂载的变量中书写方法 -->
+        <!-- 语法糖 @取代 v-on: -->
+        <button @click="add">+</button>
+        <button @click="sub">-</button>
+
+    </div>
+    <script src="../js/vue.js">
+        </script>
+        <script>
+            const app = new Vue({
+                el: '#app',
+                data:{
+                    counter :0
+                },/* 
+                 */methods:{
+                    add:function(){
+                        this.counter++;
+                        console.log("add被执行"+this.counter);
+                    },
+                    sub:function(){
+                        this.counter--;
+                        console.log("sub被执行"+this.counter);
+                    }
+                }
+            })
+        </script>
+        <!-- 
+            以前的做法
+            (1) 拿button 
+            (2)添加监听事件
+            (3)修改对应的数字
+         -->
+
+</body>
+</html>
