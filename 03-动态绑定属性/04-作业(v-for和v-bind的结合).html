@@ -1,0 +1,50 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active{
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    {{message}}
+    <ul>
+      <!-- 这里的item只是个变量  是个自定义 -->
+      <li v-for="(item,index) in movies" :class ="{'active' : index == clickIndex}" 
+      @click="changeColor(index)"
+      >{{item}} {{index}}</li> 
+    </ul>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello World',
+        movies: ['1111','2222','3333'],
+        isAcitve: false,
+        clickIndex :-1
+      },
+      methods: {
+        changeColor:function(index){
+          this.clickIndex==index?this.clickIndex=-1:this.clickIndex=index;
+          console.log(index);
+          // this.clickIndex=index;
+        },
+        getClass: function(){
+          this.$options.methods.changeColor();
+          return {active :this.isAcitve}
+        }
+      },
+    })
+    
+  </script>
+</body>
+
+</html>
