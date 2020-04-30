@@ -7,4 +7,4 @@
 ![语法格式](./../image/WeChat0471bfc0f1802d45d3bef9ef7e49978f.png)
 
     方法二:数组语法(少用)
-    语法格式: <div :class = "['class类型1','class类型2']"> // 但是这样的写法就没什么必要了啊
+    语法格式: <div :class = "['class类型1','class类型2']"> // 但是这样的写法就没什么必要了∑

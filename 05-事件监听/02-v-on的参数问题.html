@@ -1,0 +1,45 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>      
+  <div id="app">
+    {{message}}
+    <!-- 如果函数没有参数的时候,可以省略() 
+    ,Vue会默认将浏览器生产的event时间对象作为参数传入到方法中,然后直接使方法名进行调用就可以或者当前浏览器的事件,但是加上括号(btn2Click())就会认为函数中的event是一个形参打印的是undefind
+    -->
+    <button @click="btnClick">按钮1</button>
+    <button @click="btn2Click">按钮2</button>
+    <!-- 当我们既需要event,又需要别的参数的时候 -->
+    <!-- 在调用方法,如何手动的获取到浏览器的参数event =>$event -->
+    <button @click="btn3Click($event,'111')">按钮3</button>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello World',
+      },
+      methods: {
+        btnClick() {
+
+        },
+
+        btn2Click(event) {
+          console.log(event, abc);
+
+        },
+        btn3Click(event,abc) {
+          console.log(abc,event );
+        },
+      }
+    })
+  </script>
+</body>
+
+</html>

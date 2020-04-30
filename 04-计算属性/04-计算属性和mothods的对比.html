@@ -1,0 +1,44 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    {{message}}
+    <!-- 直接拼接:一般不使用,语法过于繁琐 -->
+    <h2>{{firstName}}+{{lastName}}</h2>
+    <!-- 通过定义方法getFullName -->
+    <h2>{{getFullName()}}</h2>
+    <!-- 通过计算属性进行拼接 -->
+    <h2>{{fullName}}</h2>
+    <!-- 那么计算属性跟方法有什么区别了 -->
+    <!-- 当需要多次调用的场景,计算属性性能更优,计算属性每次调用的时候,会进行比较,如果内部没有改变,就是直接返回缓存 -->
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello World',
+        firstName: '超哥',
+        lastName: '牛逼',
+      },
+      methods: {
+        getFullName: function () {
+          return this.firstName + ' ' + this.lastName;
+        }
+      },
+      computed: {
+        fullName: function () {
+          return this.firstName + ' ' + this.lastName;
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>
